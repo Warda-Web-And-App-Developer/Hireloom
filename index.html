@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hireloom – Craft your career story</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22 role=%22img%22 aria-label=%22Hireloom logo%22%3E%0A  %3Cdefs%3E%3ClinearGradient id=%22vg%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%234a6785%22/%3E%3Cstop offset=%221%22 stop-color=%22%23a94767%22/%3E%3C/linearGradient%3E%3C/defs%3E%0A  %3Crect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22url%28%23vg%29%22/%3E%0A  %3Cpath d=%22M20 12h17l11 11v27a3 3 0 0 1-3 3H20a3 3 0 0 1-3-3V15a3 3 0 0 1 3-3z%22 fill=%22%23fff%22/%3E%0A  %3Cpath d=%22M37 12v8a3 3 0 0 0 3 3h8z%22 fill=%22%23f0d5dc%22/%3E%0A  %3Cpath d=%22M25 27v18M39 27v18M25 36h14%22 fill=%22none%22 stroke=%22%23a94767%22 stroke-width=%224.2%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%0A  %3Ccircle cx=%2245.5%22 cy=%2245.5%22 r=%223.2%22 fill=%22%234a6785%22/%3E%0A%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Dancing+Script:wght@600&family=Oswald:wght@500;700&family=Raleway:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } };
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f6eded] text-slate-800 font-sans">
+
+<!-- ============ Header ============ -->
+<header class="no-print sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-[#ead9d9]">
+  <div class="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5">
+    <div class="flex items-center gap-2">
+      <span class="brand-mark w-9 h-9 block shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Hireloom logo">
+  <defs><linearGradient id="vgh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a6785"/><stop offset="1" stop-color="#a94767"/></linearGradient></defs>
+  <rect width="64" height="64" rx="16" fill="url(#vgh)"/>
+  <path d="M20 12h17l11 11v27a3 3 0 0 1-3 3H20a3 3 0 0 1-3-3V15a3 3 0 0 1 3-3z" fill="#fff"/>
+  <path d="M37 12v8a3 3 0 0 0 3 3h8z" fill="#f0d5dc"/>
+  <path d="M25 27v18M39 27v18M25 36h14" fill="none" stroke="#a94767" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="45.5" cy="45.5" r="3.2" fill="#4a6785"/>
+</svg></span>
+      <div>
+        <div class="text-lg font-extrabold leading-none tracking-tight text-[#3b4d63]">Hire<span class="text-[#a94767]">loom</span></div>
+        <div class="text-[11px] text-slate-500 mt-0.5">Craft your career story</div>
+</div>
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+      <button id="btnSample" class="btn btn-g">Load sample</button>
+      <button id="btnClear" class="btn btn-g">Clear all</button>
+      <div class="relative">
+        <button id="btnDl" class="btn btn-p">⬇ Download ▾</button>
+        <div id="dlMenu" class="menu hidden">
+          <button data-dl="pdf">PDF document<small>A4 page, ready to send</small></button>
+          <button data-dl="png">PNG image<small>Sharpest quality</small></button>
+          <button data-dl="jpg">JPG image<small>Smaller file size</small></button>
+          <button data-dl="print">PDF with selectable text<small>Uses the print dialog → Save as PDF</small></button>
+          <div class="menu-q">
+            <label for="qual">Image quality</label>
+            <select id="qual" class="inp">
+              <option value="2">Standard (1588 × 2246 px)</option>
+              <option value="3" selected>High (2382 × 3369 px)</option>
+              <option value="4">Print (3176 × 4492 px)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="lg:grid lg:grid-cols-[460px_minmax(0,1fr)] lg:h-[calc(100vh-57px)]">
+
+  <!-- ============ Form ============ -->
+  <section id="formPane" class="no-print bg-white lg:border-r border-[#ead9d9] lg:overflow-y-auto p-4 space-y-3">
+
+    <details class="card" open>
+      <summary>1 · Profile photo &amp; headline</summary>
+      <div class="p-3 space-y-3">
+        <div class="flex items-center gap-3">
+          <div id="photoPrev" class="w-20 h-20 rounded-full bg-slate-100 border border-slate-200 overflow-hidden grid place-items-center text-slate-400 text-xs text-center">No photo</div>
+          <div class="space-y-1.5">
+            <label class="btn btn-p cursor-pointer inline-block">Upload photo
+              <input id="photoIn" type="file" accept="image/*" class="hidden">
+            </label>
+            <button id="photoRm" class="lnk red block">Remove photo</button>
+            <p class="text-[11px] text-slate-500">JPG or PNG. A clear, square-ish photo works best.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="col-span-2"><label class="lbl">Full name</label><input class="inp" data-k="name" placeholder="e.g. Alex Morgan"></div>
+          <div class="col-span-2"><label class="lbl">Job title / profession</label><input class="inp" data-k="title" placeholder="e.g. Marketing Manager"></div>
+          <div class="col-span-2"><label class="lbl">Tagline or personal motto <span class="text-slate-400 font-normal">(optional)</span></label><input class="inp" data-k="tagline" placeholder="e.g. Turning ideas into results"></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary>2 · Contact details</summary>
+      <div class="p-3 grid grid-cols-2 gap-2">
+        <div><label class="lbl">Email</label><input class="inp" data-k="email" placeholder="you@email.com"></div>
+        <div><label class="lbl">Phone</label><input class="inp" data-k="phone" placeholder="+1 555 123 4567"></div>
+        <div class="col-span-2"><label class="lbl">Address / location</label><input class="inp" data-k="location" placeholder="City, Country"></div>
+        <div><label class="lbl">Website / portfolio</label><input class="inp" data-k="website" placeholder="www.yoursite.com"></div>
+        <div><label class="lbl">LinkedIn</label><input class="inp" data-k="linkedin" placeholder="linkedin.com/in/you"></div>
+        <div><label class="lbl">GitHub</label><input class="inp" data-k="github" placeholder="github.com/you"></div>
+        <div><label class="lbl">Instagram</label><input class="inp" data-k="instagram" placeholder="@you"></div>
+        <div><label class="lbl">Facebook</label><input class="inp" data-k="facebook" placeholder="facebook.com/you"></div>
+        <div><label class="lbl">X / Twitter</label><input class="inp" data-k="twitter" placeholder="@you"></div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>3 · Personal info <span class="opt">optional</span></summary>
+      <div class="p-3 grid grid-cols-2 gap-2">
+        <div><label class="lbl">Date of birth</label><input class="inp" data-k="dob" placeholder="e.g. 12 May 1998"></div>
+        <div><label class="lbl">Nationality</label><input class="inp" data-k="nationality" placeholder="e.g. Canadian"></div>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary>4 · Professional summary</summary>
+      <div class="p-3 space-y-1">
+        <textarea class="inp" rows="5" data-k="summary" placeholder="2–4 sentences about who you are, what you do best and what you are looking for."></textarea>
+        <p class="text-[11px] text-slate-500">Tip: keep it under 300 characters for the most compact styles.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>5 · Work experience</summary>
+      <div class="p-3 space-y-3">
+        <div data-list="experience" class="space-y-3"></div>
+        <button class="btn btn-g w-full" data-act="add" data-l="experience">+ Add experience</button>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>6 · Education</summary>
+      <div class="p-3 space-y-3">
+        <div data-list="education" class="space-y-3"></div>
+        <button class="btn btn-g w-full" data-act="add" data-l="education">+ Add education</button>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>7 · Skills</summary>
+      <div class="p-3 space-y-3">
+        <p class="text-[11px] text-slate-500">Name each skill and set your level with the slider.</p>
+        <div data-list="skills" class="space-y-2"></div>
+        <button class="btn btn-g w-full" data-act="add" data-l="skills">+ Add skill</button>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>8 · Languages</summary>
+      <div class="p-3 space-y-3">
+        <div data-list="languages" class="space-y-2"></div>
+        <button class="btn btn-g w-full" data-act="add" data-l="languages">+ Add language</button>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>9 · Certifications &amp; courses</summary>
+      <div class="p-3 space-y-3">
+        <div data-list="certs" class="space-y-3"></div>
+        <button class="btn btn-g w-full" data-act="add" data-l="certs">+ Add certification</button>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>10 · Projects</summary>
+      <div class="p-3 space-y-3">
+        <div data-list="projects" class="space-y-3"></div>
+        <button class="btn btn-g w-full" data-act="add" data-l="projects">+ Add project</button>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>11 · Awards &amp; achievements</summary>
+      <div class="p-3 space-y-3">
+        <div data-list="awards" class="space-y-3"></div>
+        <button class="btn btn-g w-full" data-act="add" data-l="awards">+ Add award</button>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>12 · References</summary>
+      <div class="p-3 space-y-3">
+        <div data-list="refs" class="space-y-3"></div>
+        <button class="btn btn-g w-full" data-act="add" data-l="refs">+ Add reference</button>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>13 · Tools, strengths &amp; interests</summary>
+      <div class="p-3 space-y-2">
+        <div><label class="lbl">Tools / software <span class="text-slate-400 font-normal">(comma separated)</span></label><input class="inp" data-k="tools" placeholder="Photoshop, Figma, Excel"></div>
+        <div><label class="lbl">Core strengths / services <span class="text-slate-400 font-normal">(comma separated)</span></label><input class="inp" data-k="strengths" placeholder="Branding, SEO, Leadership"></div>
+        <div><label class="lbl">Interests / hobbies <span class="text-slate-400 font-normal">(comma separated)</span></label><input class="inp" data-k="interests" placeholder="Travel, Music, Reading"></div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>14 · Show / hide sections</summary>
+      <div class="p-3">
+        <p class="text-[11px] text-slate-500 mb-2">Untick a section to hide it from the resume without deleting your details.</p>
+        <div id="hideList" class="grid grid-cols-2 gap-x-3 gap-y-1.5"></div>
+      </div>
+    </details>
+
+    <p class="text-[11px] text-slate-400 text-center pb-6">Everything is saved automatically in your browser.</p>
+  </section>
+
+  <!-- ============ Preview ============ -->
+  <section id="previewPane" class="lg:overflow-y-auto p-4">
+    <div class="no-print max-w-[900px] mx-auto space-y-3">
+
+      <div class="bg-white rounded-xl border border-[#ead9d9] p-3">
+        <div class="flex items-center justify-between mb-2 gap-3">
+          <h2 class="font-semibold text-sm">Choose a style</h2>
+          <span id="tplHint" class="text-[11px] text-slate-500 text-right"></span>
+        </div>
+        <div id="tplList" class="flex gap-3 overflow-x-auto pb-2"></div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-[#ead9d9] p-3 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <div>
+          <div class="lbl mb-1">Colour theme</div>
+          <div id="swatches" class="flex gap-2"></div>
+        </div>
+        <div class="flex items-center gap-3">
+          <label class="lbl flex items-center gap-1.5">Main <input id="cDark" type="color" class="clr"></label>
+          <label class="lbl flex items-center gap-1.5">Accent <input id="cAcc" type="color" class="clr"></label>
+        </div>
+        <div class="flex items-center gap-2">
+          <label class="lbl" for="fsRange">Text size</label>
+          <input id="fsRange" type="range" min="0.8" max="1.2" step="0.02" class="w-28">
+        </div>
+      </div>
+
+      <div id="fitWarn" class="hidden rounded-xl border border-amber-300 bg-amber-50 text-amber-800 text-xs p-3">
+        ⚠ Some text runs past the edge of the page. Lower the text size, shorten a description, or hide a section.
+      </div>
+    </div>
+
+    <div id="stage" class="mt-4 flex justify-center">
+      <div id="scaleBox">
+        <div id="holder"><div id="resume" class="page"></div></div>
+      </div>
+    </div>
+    <p class="no-print text-center text-[11px] text-slate-400 mt-3 pb-6">Use <b>Download</b> (top right) to save your resume as PDF, PNG or JPG.</p>
+  </section>
+</main>
+
+<div id="toast" class="no-print"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
